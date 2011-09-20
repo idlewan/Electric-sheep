@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Three.js - Game</title>
+		<meta charset="utf-8">
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+		</style>
+		<script type="text/javascript" src="Three/Three.js"></script>
+		<script type="text/javascript" src="Three/RequestAnimationFrame.js"></script>
+        <script src="TiledSurface/Surface.js" type="text/javascript"></script>
+
+
+
+
+		<script type="text/javascript">
+		    // More code to go here
+		    var
+	            camera,
+	            scene,
+	            renderer;
+
+		    var uniforms, material, mesh;
+		    function doImgpop(e) {
+
+		    }
+		    function initialize() {
+		        var
+		        grass,
+		        meshCanvas,
+		        plane,
+		        i, j, uvs;
+
+
+		        camera = new THREE.Camera(90, window.innerWidth / window.innerHeight, 1, 10000);
+
+		        camera.position.x = 30;
+		        camera.position.y = 70.711; // 30 degree angle from the xz plane
+                camera.position.z = 30;
+
+				len = 1000;
+		        camera.position.x = len*Math.sin(3.14/4);
+		        camera.position.y = len*Math.cos(35/180*3.14);
+		        camera.position.z = len * Math.sin(3.14/4);
+
+		        scene = new THREE.Scene();
+
+
+
+
+		        scene.addObject(CreateTiledSurface(16,8,'TiledSurface/Map.bmp'));
+
+
+		        renderer = new THREE.WebGLRenderer({ antialias: true });
+		        renderer.setSize(window.innerWidth, window.innerHeight);
+
+		        document.body.appendChild(renderer.domElement);
+
+		    }
+		    function animate() {
+		        requestAnimationFrame(animate);
+
+		        render();
+		    }
+		    function render() {
+		        renderer.render(scene, camera);
+		    }
+
+                </script>
+	</head>
+	<body>
+		<script type="text/javascript">
+		    initialize();
+
+		    animate();
+
+
+
+		</script>
+	</body>
+	</html>

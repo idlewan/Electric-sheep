@@ -13,7 +13,7 @@
 		<script type="text/javascript" src="Three/Three.js"></script>
 		<script type="text/javascript" src="Three/RequestAnimationFrame.js"></script>
         <script src="TiledSurface/Surface.js" type="text/javascript"></script>
-
+		<script type="text/javascript" src="Player/Player.js"></script>
 
 
 
@@ -53,6 +53,8 @@
 
 
 		        scene.addObject(CreateTiledSurface(16,8,'TiledSurface/Map.bmp'));
+
+		        CreatePlayerModel(function(group){scene.addObject( group );}, 10);
 
 
 		        renderer = new THREE.WebGLRenderer({ antialias: true });

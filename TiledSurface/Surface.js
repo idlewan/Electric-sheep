@@ -2,14 +2,16 @@
 
 
 
-function CreateTiledSurface(sizex, sizey, mapimage) {
+function CreateTiledSurface(sizex, sizey, mapimage, texturemap) {
     
     if (sizex <= 0 || sizey <= 0 || sizex == null || sizey == null)
         throw 'CreateSurface: Parameters sizex and sizey need to be positive integers.';
+    texturemap = texturemap || 'TiledSurface/TextureMap.bmp';
     var uniforms;   
     uniforms = {
         map: { type: "t", value: 0, texture: THREE.ImageUtils.loadTexture(mapimage) },
-        texturemap: { type: "t", value: 1, texture: THREE.ImageUtils.loadTexture("TiledSurface/TextureMap.bmp") }
+        //texturemap: { type: "t", value: 1, texture: THREE.ImageUtils.loadTexture("TiledSurface/TextureMap.bmp") }
+        texturemap: { type: "t", value: 1, texture: THREE.ImageUtils.loadTexture(texturemap) }
     };
     
 
@@ -32,7 +34,10 @@ function CreateTiledSurface(sizex, sizey, mapimage) {
             +'vec2 tmp = index_frac/texturemapsize+tileindex*tilesize/texturesize;\n'
 			+'tmp.x = tmp.x + (tileindex.x*2.0+1.0)*1.0/512.0;\n'
 			+'tmp.y = tmp.y + (tileindex.y*2.0+1.0)*1.0/512.0;\n'
-            +'gl_FragColor= texture2D(texturemap, tmp);\n'
+	    +'vec4 col = texture2D(texturemap, tmp);\n' 
+	    // col.a = 0.5;\n'
+	    +'gl_FragColor = col;\n'
+            //+'gl_FragColor= texture2D(texturemap, tmp);\n'
             +'}';
 
     var vertexShader = 'varying vec2 vUv;       \
@@ -54,7 +59,9 @@ function CreateTiledSurface(sizex, sizey, mapimage) {
         uniforms: uniforms,
         vertexShader: vertexShader,
         fragmentShader: fragmentShader,
-        wireframe: false
+        wireframe: false,
+        blending: THREE.NormalBlending,
+        depthTest: true
     });
 
 

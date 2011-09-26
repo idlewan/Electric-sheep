@@ -10,10 +10,11 @@
 				overflow: hidden;
 			}
 		</style>
-		<script type="text/javascript" src="Three/Three.js"></script>
-		<script type="text/javascript" src="Three/RequestAnimationFrame.js"></script>
-        <script src="TiledSurface/Surface.js" type="text/javascript"></script>
-		<script type="text/javascript" src="Player/Player.js"></script>
+		<script type="text/javascript" src="Scripts/Three.js"></script>
+		<script type="text/javascript" src="Scripts/RequestAnimationFrame.js"></script>
+        <script type="text/javascript" src="Scripts/Surface.js"></script>
+		<script type="text/javascript" src="Scripts/Player.js"></script>
+		<script type="text/javascript" src="Scripts/Skybox.js"></script>
 
 
 
@@ -52,12 +53,12 @@
 
 
 
-		        scene.addObject(CreateTiledSurface(16,8,'TiledSurface/Map.bmp','TiledSurface/TextureMapSpace.png'));
+		        scene.addObject(CreateTiledSurface(16,8,'Assets/TiledSurface/Map.bmp','Assets/TiledSurface/TextureMapSpace.png'));
 
-		        CreatePlayerModel(function(group){group.position.x=800; scene.addObject( group );}, 10);
+		        CreatePlayerModel(function(group){group.position.x=800; group.position.z=800; scene.addObject( group );}, 10);
 
 
-		        var urlPrefix = "Skybox/";
+		        /*var urlPrefix = "Skybox/";
 				var urls = [ urlPrefix + "posx.png", urlPrefix + "negx.png",
 				    urlPrefix + "posy.png", urlPrefix + "negy.png",
 				    urlPrefix + "posz.png", urlPrefix + "negz.png" ];
@@ -72,8 +73,9 @@
 				// build the skybox Mesh
 				skyboxMesh  = new THREE.Mesh( new THREE.CubeGeometry( 100000, 100000, 100000, 1, 1, 1, null, true ), material );
 				// add it to the scene
-				scene.addObject( skyboxMesh );
+				scene.addObject( skyboxMesh );*/
 
+				scene.addObject(CreateSkybox());
 
 
 		        renderer = new THREE.WebGLRenderer({ antialias: true });

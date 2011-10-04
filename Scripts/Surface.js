@@ -1,19 +1,14 @@
 
-
-
-
 function CreateTiledSurface(sizex, sizey, mapimage, texturemap) {
     
     if (sizex <= 0 || sizey <= 0 || sizex == null || sizey == null)
         throw 'CreateSurface: Parameters sizex and sizey need to be positive integers.';
-    texturemap = texturemap || 'TiledSurface/TextureMap.bmp';
-    var uniforms;   
-    uniforms = {
+    texturemap = texturemap || 'Assets/TiledSurface/TextureMap.bmp';
+
+    var uniforms = {
         map: { type: "t", value: 0, texture: THREE.ImageUtils.loadTexture(mapimage) },
-        //texturemap: { type: "t", value: 1, texture: THREE.ImageUtils.loadTexture("TiledSurface/TextureMap.bmp") }
         texturemap: { type: "t", value: 1, texture: THREE.ImageUtils.loadTexture(texturemap) }
     };
-    
 
     var fragmentShader = 'varying vec2 vUv;\n'
    			+'uniform sampler2D map;\n'
@@ -34,19 +29,20 @@ function CreateTiledSurface(sizex, sizey, mapimage, texturemap) {
             +'vec2 tmp = index_frac/texturemapsize+tileindex*tilesize/texturesize;\n'
 			+'tmp.x = tmp.x + (tileindex.x*2.0+1.0)*1.0/512.0;\n'
 			+'tmp.y = tmp.y + (tileindex.y*2.0+1.0)*1.0/512.0;\n'
-	    +'vec4 col = texture2D(texturemap, tmp);\n' 
-	    // col.a = 0.5;\n'
-	    +'gl_FragColor = col;\n'
+            +'vec4 col = texture2D(texturemap, tmp);\n' 
+            // col.a = 0.5;\n'
+            +'gl_FragColor = col;\n'
             //+'gl_FragColor= texture2D(texturemap, tmp);\n'
             +'}';
 
-    var vertexShader = 'varying vec2 vUv;       \
-			void main()                         \
-			{                                   \
-				vUv = uv;                       \
-				vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );  \
-				gl_Position = projectionMatrix * mvPosition;                \
-			}';
+    var vertexShader = '\
+        varying vec2 vUv;\
+        void main()\
+        {\
+            vUv = uv;\
+            vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );\
+            gl_Position = projectionMatrix * mvPosition;\
+        }';
 
     uniforms.map.texture.magFilter = THREE.NearestFilter; uniforms.map.texture.minFilter = THREE.NearestFilter;
     //uniforms.texturemap.texture.magFilter = THREE.NearestFilter; uniforms.texturemap.texture.minFilter = THREE.NearestFilter

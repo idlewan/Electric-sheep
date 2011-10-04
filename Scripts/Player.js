@@ -17,7 +17,6 @@ function CreatePlayerModel(callback, scale) {
 		mesh.updateMatrix();
 		group.addChild(mesh);
 
-		//scene.addObject( group );
 		callback(group);
 	} } );
 

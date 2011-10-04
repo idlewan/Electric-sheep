@@ -15,7 +15,9 @@
         <script type="text/javascript" src="Scripts/Surface.js"></script>
 		<script type="text/javascript" src="Scripts/Player.js"></script>
 		<script type="text/javascript" src="Scripts/Skybox.js"></script>
+		<script type="text/javascript" src="Scripts/TextRendering.js"></script>
 
+        <script type="text/javascript" src="Assets/droid_sans_bold.typeface.js"></script>
 
 
 		<script type="text/javascript">
@@ -75,7 +77,24 @@
 				// add it to the scene
 				scene.addObject( skyboxMesh );*/
 
+
+                // Lights
+                var dirLight = new THREE.DirectionalLight( 0xffffff, 0.125 );
+                dirLight.position.set( 0, 0, 1 );
+                dirLight.position.normalize();
+                scene.addLight( dirLight );
+
+                var pointLight = new THREE.PointLight( 0xFFFFFF );
+                pointLight.position.x = 10;
+                pointLight.position.y = 50;
+                pointLight.position.z = 280;
+                scene.addLight(pointLight);
+
+
 				scene.addObject(CreateSkybox());
+                createText( 10, 10, 60, "text 1", scene);
+                createText( 60, 50, -90, "text 2", scene);
+                createText( 650, 30, 0, "text 3", scene);
 
 
 		        renderer = new THREE.WebGLRenderer({ antialias: true });

@@ -19,6 +19,12 @@ body {
 
         <script type="text/javascript" src="Assets/droid_sans_bold.typeface.js"></script>
 
+		<script type="text/javascript" src="Scripts/EffectComposer.js"></script> 
+		<script type="text/javascript" src="Scripts/ShaderExtras.js"></script> 
+		<script type="text/javascript" src="Scripts/MaskPass.js"></script> 
+		<script type="text/javascript" src="Scripts/RenderPass.js"></script> 
+		<script type="text/javascript" src="Scripts/ShaderPass.js"></script> 
+
 		<script type="text/javascript">
 		    // More code to go here
 		    var camera,
@@ -52,7 +58,8 @@ body {
 
                 CreatePlayerModel(function(group){group.position.x=800;group.position.z=800;scene.addObject( group );}, 10);
 
-				scene.addObject(CreateSkybox());
+                // enable this line to switch to the skybox background
+//				scene.addObject(CreateSkybox());
 
                 // Lights
                 var dirLight = new THREE.DirectionalLight( 0xffffff, 0.125 );
@@ -74,6 +81,25 @@ body {
 		        renderer = new THREE.WebGLRenderer({ antialias: true });
 		        renderer.setSize(window.innerWidth, window.innerHeight);
 
+
+				// Post Processing Filters
+			
+				renderer.setClearColorHex( 0xffffff, 1 );
+
+				effectVignette = new THREE.ShaderPass( THREE.ShaderExtras[ "vignette" ] );
+				effectVignette.uniforms[ "offset" ].value = 0.95;
+				effectVignette.uniforms[ "darkness" ].value = 1.6;
+				
+	
+				var renderScene = new THREE.RenderPass( scene, camera );
+
+				composer = new THREE.EffectComposer( renderer );
+				composer.addPass( renderScene );
+				composer.addPass( effectVignette );
+				
+				effectVignette.renderToScreen = true;
+
+
 		        document.body.appendChild(renderer.domElement);
 
 		    }
@@ -85,7 +111,9 @@ body {
 		    }
 
 		    function render() {
-		        renderer.render(scene, camera);
+				renderer.clear();
+				composer.render( 0.1 );
+		        //renderer.render(scene, camera);
 		    }
         </script>
     </head>

@@ -3,7 +3,7 @@ function removeLetterFromTarget() {
     activeTarget.word = activeTarget.word.substring(1);
     if (activeTarget.word.length > 0) {
         scene.removeChild(activeTarget.text3D);
-        activeTarget.text3D = createText( activeTarget.x, activeTarget.y, activeTarget.z, activeTarget.word );
+        activeTarget.text3D = createText( activeTarget.x, activeTarget.y, activeTarget.z, activeTarget.word, true );
         scene.addObject(activeTarget.text3D);
     }
     else {
@@ -21,7 +21,7 @@ function removeLetterFromTarget() {
 function recognizeWord(e){
     var unicode = e.keyCode ? e.keyCode : e.charCode;
     var actualkey = String.fromCharCode(unicode).toLowerCase();
-    console.log(actualkey);
+//    console.log(actualkey);
 
     if (activeTarget == null){
         for (i=0; i < enemies.length; i++) {
@@ -42,6 +42,6 @@ function recognizeWord(e){
         else
             noOfMistakes++;
     }
-    console.log(activeTarget);
+//    console.log(activeTarget);
 }
 document.onkeydown=recognizeWord;

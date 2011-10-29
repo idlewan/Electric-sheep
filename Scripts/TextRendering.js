@@ -1,7 +1,8 @@
 // create and return a 3D text object from the string at the given position
 // example usage: scene.addObject(createText( 10, 10, 60, "text 1"));
-function createText(x, y, z, textString)
+function createText(x, y, z, textString, selected)
 {
+    material = selected ? textMaterialFrontSelected: textMaterialFront;
     var text3d = new THREE.TextGeometry( textString, {
             size: 70,
             height: 20,
@@ -13,7 +14,7 @@ function createText(x, y, z, textString)
             bevelSize: 1.5,
             bevelSegments: 3,
 
-            material: textMaterialFront,
+            material: material,
             extrudeMaterial: textMaterialSide
     });
 

@@ -38,6 +38,8 @@ body {
             var enemies;
             var activeTarget = null;
             var noOfMistakes=0;
+            
+            var time;
 
             // materials reused several times
             var enemyMaterial = new THREE.MeshPhongMaterial( { color: 0x750505, shininess: 20 });
@@ -65,7 +67,10 @@ body {
 
 //		        scene.addObject(CreateTiledSurface(16,8,'Assets/TiledSurface/Map.bmp','Assets/TiledSurface/TextureMapSpace.png'));
 
-//                CreatePlayerModel(function(group){group.position.x=800;group.position.z=800;scene.addObject( group );}, 10);
+                CreatePlayerModel(function(group){
+                    group.position.x=0;
+                    group.position.z=0;
+                    scene.addObject( group );}, 10);
 
                 // enable this line to switch to the skybox background
 //				scene.addObject(CreateSkybox());
@@ -73,7 +78,7 @@ body {
                 // fill the scene with 'enemies'
                 enemies = [];
                 for (var i=0; i < dictionary.length; i++) {
-                    enemies.push(new Enemy(dictionary[i], pickRandom(enemyPositionsX)*7, 120, pickRandom(enemyPositionsZ)*7));
+                    enemies.push(new Enemy(dictionary[i], pickRandom(enemyPositionsX)*10+0.1, 120.1, pickRandom(enemyPositionsZ)*10+0.1));
                 }
 
                 // Lights
@@ -108,10 +113,14 @@ body {
 				
 				effectVignette.renderToScreen = true;
 
+                time = Date.now();
+
 		        document.body.appendChild(renderer.domElement);
 		    }
 		    function animate() {
 		        requestAnimationFrame(animate);
+
+                moveEnemies();
 
 		        render();
 		    }

@@ -32,8 +32,8 @@ function createText(x, y, z, textString)
     text.position.z = z;
 
     // TODO: facing camera ?
-    text.rotation.x = 0;
-    text.rotation.y = Math.PI*2;
+//    text.rotation.x = 0;
+//    text.rotation.y = Math.PI*2;
 
     var textObject = new THREE.Object3D();
     textObject.addChild( text );

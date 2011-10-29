@@ -32,7 +32,7 @@ var enemyPositionsZ = [];
 
 function pickRandom(positions) {
     if (positions.length == 0)
-        positions = [-170, -100, -30, 30];
+        positions = [-180, -120, -80, -30, 30];
 
     var positionIndex = Math.random() * positions.length;
     return positions.splice(positionIndex, 1);

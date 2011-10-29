@@ -10,7 +10,7 @@ body {
     overflow: hidden;
 }
         </style>
-        // libraries
+        <!--  libraries -->
 		<script type="text/javascript" src="Scripts/Three.js"></script>
 		<script type="text/javascript" src="Scripts/RequestAnimationFrame.js"></script>
 		<script type="text/javascript" src="Scripts/EffectComposer.js"></script> 
@@ -19,10 +19,10 @@ body {
 		<script type="text/javascript" src="Scripts/RenderPass.js"></script> 
 		<script type="text/javascript" src="Scripts/ShaderPass.js"></script> 
 
-        // fonts
+        <!-- fonts -->
         <script type="text/javascript" src="Assets/droid_sans_bold.typeface.js"></script>
 
-        // 
+        <!--   -->
         <script type="text/javascript" src="Scripts/Surface.js"></script>
 		<script type="text/javascript" src="Scripts/Player.js"></script>
 		<script type="text/javascript" src="Scripts/Skybox.js"></script>
@@ -41,7 +41,7 @@ body {
 
             // materials reused several times
             var enemyMaterial = new THREE.MeshPhongMaterial( { color: 0x750505, shininess: 20 });
-            var textMaterialFront = new THREE.MeshPhongMaterial( { color: 0xffffff, shading: THREE.FlatShading } );
+            var textMaterialFront = new THREE.MeshPhongMaterial( { color: 0xcccccc, shading: THREE.FlatShading } );
             var textMaterialSide = new THREE.MeshPhongMaterial( { color: 0xffffff, shading: THREE.SmoothShading } );
             var faceMaterial = new THREE.MeshFaceMaterial();
 
@@ -73,19 +73,19 @@ body {
                 // fill the scene with 'enemies'
                 enemies = [];
                 for (var i=0; i < dictionary.length; i++) {
-                    enemies.push(new Enemy(dictionary[i], pickRandom(enemyPositionsX)*10, 120, pickRandom(enemyPositionsZ)*10));
+                    enemies.push(new Enemy(dictionary[i], pickRandom(enemyPositionsX)*7, 120, pickRandom(enemyPositionsZ)*7));
                 }
 
                 // Lights
                 var dirLight = new THREE.DirectionalLight( 0xffffff, 0.125 );
-                dirLight.position.set( 0, 0, 1 );
+                dirLight.position.set( 10, 10, 1 );
                 dirLight.position.normalize();
                 scene.addLight( dirLight );
 
                 var pointLight = new THREE.PointLight( 0xFFFFFF );
                 pointLight.position.x = 10;
                 pointLight.position.y = 50;
-                pointLight.position.z = 280;
+                pointLight.position.z = 1280;
                 scene.addLight(pointLight);
 
 

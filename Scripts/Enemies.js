@@ -1,6 +1,6 @@
 dictionary = [
-    "acclaims", "barbecue", "blueberry", "capitol", "cohesion",
-    "damage", "distraction", "eager", "engraving", "excavation",
+    "acclaims", "barbecue", "cohesion",
+    "damage", "excavation", "fanatic", "geophysics", "hall"
 ]
 
 function Enemy(word, x, y, z) {
@@ -22,7 +22,7 @@ var enemyPositionsZ = [];
 
 function pickRandom(positions) {
     if (positions.length == 0)
-        positions = [-150, -125, -100, -75, -50, -25, 0, 25, 50, 75];
+        positions = [-210, -140, -70, 0, 70];
 
     var positionIndex = Math.random() * positions.length;
     return positions.splice(positionIndex, 1);

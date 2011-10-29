@@ -1,9 +1,7 @@
 // create and return a 3D text object from the string at the given position
+// example usage: scene.addObject(createText( 10, 10, 60, "text 1"));
 function createText(x, y, z, textString)
 {
-    var textMaterialFront = new THREE.MeshPhongMaterial( { color: 0xffffff, shading: THREE.FlatShading } );
-    var textMaterialSide = new THREE.MeshPhongMaterial( { color: 0xffffff, shading: THREE.SmoothShading } );
-
     var text3d = new THREE.TextGeometry( textString, {
             size: 70,
             height: 20,
@@ -24,7 +22,6 @@ function createText(x, y, z, textString)
 
     var centerOffset = -0.5 * (text3d.boundingBox.x[ 1 ] - text3d.boundingBox.x[ 0 ]);
 
-    var faceMaterial = new THREE.MeshFaceMaterial();
     var text = new THREE.Mesh(text3d, faceMaterial);
 
     text.doubleSided = false;

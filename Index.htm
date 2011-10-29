@@ -31,6 +31,8 @@ body {
 	            scene,
 	            renderer;
 
+            var enemies;
+
 		    var uniforms, material, mesh;
 		    function doImgpop(e) {
 
@@ -74,9 +76,9 @@ body {
                 scene.addLight(pointLight);
 
                 // Text tests
-                scene.addObject(createText( 10, 10, 60, "text 1"));
-                scene.addObject(createText( 60, 50, -90, "text 2"));
-                scene.addObject(createText( 650, 30, 0, "text 3"));
+//                scene.addObject(createText( 10, 10, 60, "text 1"));
+//                scene.addObject(createText( 60, 50, -90, "text 2"));
+//                scene.addObject(createText( 650, 30, 0, "text 3"));
 
 		        renderer = new THREE.WebGLRenderer({ antialias: true });
 		        renderer.setSize(window.innerWidth, window.innerHeight);
@@ -100,9 +102,46 @@ body {
 				effectVignette.renderToScreen = true;
 
 
+                dictionary = [
+                    "acclaims", "barbecue", "blueberry", "capitol", "cohesion",
+                    "damage", "distraction", "eager", "engraving", "excavation",
+                ]
+
+                var enemyMaterial = new THREE.MeshPhongMaterial( { color: 0x750505, shininess: 20 });
+
+                function Enemy(word, x, y, z) {
+                    this.word = word;
+                    this.x = x;
+                    this.y = y;
+                    this.z = z;
+                    this.text3D = createText( x, y, z, word );
+                    this.enemy3D = new THREE.Mesh( new THREE.CubeGeometry( 100, 100, 100 ), enemyMaterial );
+                    this.enemy3D.position.x = x;
+                    this.enemy3D.position.y = 50;
+                    this.enemy3D.position.z = z;
+                    scene.addObject(this.text3D);
+                    scene.addObject(this.enemy3D);
+                }
+
+                enemies = [];
+                for (var i=0; i < dictionary.length; i++) {
+                    enemies.push(new Enemy(dictionary[i], pickRandom(enemyPositionsX)*10, 120, pickRandom(enemyPositionsZ)*10));
+                }
+
 		        document.body.appendChild(renderer.domElement);
 
 		    }
+            var enemyPositionsX = [];
+            var enemyPositionsZ = [];
+            function pickRandom(positions) {
+                if (positions.length == 0)
+                    positions = [-150, -125, -100, -75, -50, -25, 0, 25, 50, 75];
+
+                var positionIndex = Math.random() * positions.length;
+                return positions.splice(positionIndex, 1);
+                //return positions[Math.floor(positionIndex)];
+            }
+
 
 		    function animate() {
 		        requestAnimationFrame(animate);

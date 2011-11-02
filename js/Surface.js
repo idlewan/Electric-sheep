@@ -3,7 +3,7 @@ function CreateTiledSurface(sizex, sizey, mapimage, texturemap) {
     
     if (sizex <= 0 || sizey <= 0 || sizex == null || sizey == null)
         throw 'CreateSurface: Parameters sizex and sizey need to be positive integers.';
-    texturemap = texturemap || 'Assets/TiledSurface/TextureMap.bmp';
+    texturemap = texturemap || 'assets/TiledSurface/TextureMap.bmp';
 
     var uniforms = {
         map: { type: "t", value: 0, texture: THREE.ImageUtils.loadTexture(mapimage) },

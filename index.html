@@ -11,24 +11,24 @@ body {
 }
         </style>
         <!--  libraries -->
-		<script type="text/javascript" src="Scripts/Three.js"></script>
-		<script type="text/javascript" src="Scripts/RequestAnimationFrame.js"></script>
-		<script type="text/javascript" src="Scripts/EffectComposer.js"></script> 
-		<script type="text/javascript" src="Scripts/ShaderExtras.js"></script> 
-		<script type="text/javascript" src="Scripts/MaskPass.js"></script> 
-		<script type="text/javascript" src="Scripts/RenderPass.js"></script> 
-		<script type="text/javascript" src="Scripts/ShaderPass.js"></script> 
+		<script type="text/javascript" src="./js/Three.js"></script>
+		<script type="text/javascript" src="./js/RequestAnimationFrame.js"></script>
+		<script type="text/javascript" src="./js/EffectComposer.js"></script> 
+		<script type="text/javascript" src="./js/ShaderExtras.js"></script> 
+		<script type="text/javascript" src="./js/MaskPass.js"></script> 
+		<script type="text/javascript" src="./js/RenderPass.js"></script> 
+		<script type="text/javascript" src="./js/ShaderPass.js"></script> 
 
         <!-- fonts -->
-        <script type="text/javascript" src="Assets/droid_sans_bold.typeface.js"></script>
+        <script type="text/javascript" src="./assets/droid_sans_bold.typeface.js"></script>
 
         <!--   -->
-        <script type="text/javascript" src="Scripts/Surface.js"></script>
-		<script type="text/javascript" src="Scripts/Player.js"></script>
-		<script type="text/javascript" src="Scripts/Skybox.js"></script>
-		<script type="text/javascript" src="Scripts/TextRendering.js"></script>
-		<script type="text/javascript" src="Scripts/Keyboard.js"></script>
-		<script type="text/javascript" src="Scripts/Enemies.js"></script>
+        <script type="text/javascript" src="./js/Surface.js"></script>
+		<script type="text/javascript" src="./js/Player.js"></script>
+		<script type="text/javascript" src="./js/Skybox.js"></script>
+		<script type="text/javascript" src="./js/TextRendering.js"></script>
+		<script type="text/javascript" src="./js/Keyboard.js"></script>
+		<script type="text/javascript" src="./js/Enemies.js"></script>
 
 		<script type="text/javascript">
 		    var camera,
@@ -66,7 +66,7 @@ body {
 
 		        scene = new THREE.Scene();
 
-//		        scene.addObject(CreateTiledSurface(16,8,'Assets/TiledSurface/Map.bmp','Assets/TiledSurface/TextureMapSpace.png'));
+//		        scene.addObject(CreateTiledSurface(16,8,'assets/TiledSurface/Map.bmp','assets/TiledSurface/TextureMapSpace.png'));
 
                 CreatePlayerModel(function(group){
                     group.position.x=0;

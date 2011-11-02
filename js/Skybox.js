@@ -1,7 +1,7 @@
 function CreateSkybox(posx, negx, posy, negy, posz, negz) 
 {
 
-	var urlPrefix = "Assets/Skybox/";
+	var urlPrefix = "assets/Skybox/";
 	
 	posx = posx || urlPrefix+'posx.png';
 	negx = negx || urlPrefix+'negx.png';

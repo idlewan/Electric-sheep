@@ -1,12 +1,12 @@
 
 
 function CreatePlayerModel(callback, scale) {
-	var material = new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'Assets/Player/proxyPlayer.png' ) } );
+	var material = new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'assets/Player/proxyPlayer.png' ) } );
 	var loader = new THREE.JSONLoader();
 	var mesh;
 	var group = new THREE.Object3D();
 	var scale = scale || 30;
-	loader.load( { model: 'Assets/Player/playerProxy_testExport.js', callback: function ( geometry ) {
+	loader.load( { model: 'assets/Player/playerProxy_testExport.js', callback: function ( geometry ) {
 		geometry.computeTangents();
 
 		mesh = new THREE.Mesh( geometry, material );

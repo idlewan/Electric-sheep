@@ -1,1 +1,19 @@
 Electric sheep is a game made for the 2011 Game Creator competition (http://gamecreator.is/).
+
+To be able to run it locally, you have to disable the same origin policy in your browser.
+In Firefox, type about:config in the adress bar and search for security.fileuri.strict_origin_policy.
+Put the value to false.
+For Chrome, you can start it with the command-line argument '--allow-file-access-from-files'.
+
+You can also serve the files locally from your computer to get around the same-origin restriction.
+On Windows, download and install python2.7, then launch a terminal, cd to TypeBot's directory
+and launch the simple server with C:\Python27\python.exe -m SimpleHTTPServer
+
+
+The prototype has been tested and works on the latest Chrome on Windows and on the latest Firefox 
+on Linux.
+
+To have an easier way to test the prototype, a temporary url will be put soon at
+http://www.idlewan.com/temp/electricsheep/
+Another url will be at http://www.idlewan.com/temp/electricsheep-updated/ for an updated version 
+(modifications done after the 29th).

@@ -11,26 +11,27 @@ body {
 }
         </style>
         <!--  libraries -->
-		<script type="text/javascript" src="./js/Three.js"></script>
-		<script type="text/javascript" src="./js/RequestAnimationFrame.js"></script>
-		<script type="text/javascript" src="./js/EffectComposer.js"></script> 
-		<script type="text/javascript" src="./js/ShaderExtras.js"></script> 
-		<script type="text/javascript" src="./js/MaskPass.js"></script> 
-		<script type="text/javascript" src="./js/RenderPass.js"></script> 
-		<script type="text/javascript" src="./js/ShaderPass.js"></script> 
+		<script src="./js/Three.js"></script>
+		<script src="./js/RequestAnimationFrame.js"></script>
+		<script src="./js/EffectComposer.js"></script> 
+		<script src="./js/ShaderExtras.js"></script> 
+		<script src="./js/MaskPass.js"></script> 
+		<script src="./js/RenderPass.js"></script> 
+		<script src="./js/ShaderPass.js"></script> 
+        <script src="./lib/THREEx.WindowResize.js"></script>
 
         <!-- fonts -->
-        <script type="text/javascript" src="./assets/droid_sans_bold.typeface.js"></script>
+        <script src="./assets/droid_sans_bold.typeface.js"></script>
 
         <!--   -->
-        <script type="text/javascript" src="./js/Surface.js"></script>
-		<script type="text/javascript" src="./js/Player.js"></script>
-		<script type="text/javascript" src="./js/Skybox.js"></script>
-		<script type="text/javascript" src="./js/TextRendering.js"></script>
-		<script type="text/javascript" src="./js/Keyboard.js"></script>
-		<script type="text/javascript" src="./js/Enemies.js"></script>
+        <script src="./js/Surface.js"></script>
+		<script src="./js/Player.js"></script>
+		<script src="./js/Skybox.js"></script>
+		<script src="./js/TextRendering.js"></script>
+		<script src="./js/Keyboard.js"></script>
+		<script src="./js/Enemies.js"></script>
 
-		<script type="text/javascript">
+		<script>
 		    var camera,
 	            scene,
 	            renderer;
@@ -116,7 +117,8 @@ body {
 
                 time = Date.now();
 
-		        document.body.appendChild(renderer.domElement);
+                document.body.appendChild(renderer.domElement);
+                THREEx.WindowResize(renderer, camera);
 		    }
 		    function animate() {
 		        requestAnimationFrame(animate);
@@ -132,7 +134,7 @@ body {
 		        //renderer.render(scene, camera);
 		    }
         </script>
-        <script type="text/javascript">
+        <script>
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-18892882-2']);
@@ -147,7 +149,7 @@ body {
         </script>
     </head>
     <body>
-		<script type="text/javascript">
+		<script>
 		    initialize();
 
 		    animate();

@@ -13,8 +13,10 @@ canvas {
     left: 0;
 }
 #container {  
-margin: 100px auto;  
-width: 688px;  
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 3%;
+    width: 100%;
 }  
 #write {  
 margin: 0 0 5px;  
@@ -28,7 +30,8 @@ border: 1px solid #f9f9f9;
 -webkit-border-radius: 5px;  
 }  
 #keyboard {  
-margin: 0;  
+    width: 688px; 
+margin: auto;  
 padding: 0;  
 list-style: none;  
 }  

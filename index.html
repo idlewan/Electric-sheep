@@ -3,13 +3,7 @@
     <head>
         <title>Electric Sheep - Development tests</title>
         <meta charset="utf-8"/>
-        <style type="text/css">
-body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-        </style>
+        <link rel="stylesheet" href="style.css">
         <!--  libraries -->
 		<script src="./js/Three.js"></script>
 		<script src="./js/RequestAnimationFrame.js"></script>
@@ -22,6 +16,7 @@ body {
 
         <!-- fonts -->
         <script src="./assets/droid_sans_bold.typeface.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet'>
 
         <!--   -->
         <script src="./js/Surface.js"></script>
@@ -117,7 +112,11 @@ body {
 
                 time = Date.now();
 
-                document.body.appendChild(renderer.domElement);
+
+                // allow the menu to be displayed on top of the canvas
+                var menu = document.getElementById("menu");
+                menu.parentNode.insertBefore( renderer.domElement, menu );
+
                 THREEx.WindowResize(renderer, camera);
 		    }
 		    function animate() {
@@ -149,6 +148,12 @@ body {
         </script>
     </head>
     <body>
+        <div id="menu">
+            <ul>
+                <li><a class="button" href="#" onclick="">Tutorial</a></li>
+                <li><a class="button" href="#" onclick="">Story</a></li>
+            </ul>
+        </div>
 		<script>
 		    initialize();
 

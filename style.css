@@ -1,0 +1,125 @@
+* {  
+margin: 0;  
+padding: 0;  
+}  
+body {  
+font: 71%/1.5 Verdana, Sans-Serif;  
+background: #eee;  
+overflow: hidden;
+}  
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#container {  
+margin: 100px auto;  
+width: 688px;  
+}  
+#write {  
+margin: 0 0 5px;  
+padding: 5px;  
+width: 671px;  
+height: 200px;  
+font: 1em/1.5 Verdana, Sans-Serif;  
+background: #fff;  
+border: 1px solid #f9f9f9;  
+-moz-border-radius: 5px;  
+-webkit-border-radius: 5px;  
+}  
+#keyboard {  
+margin: 0;  
+padding: 0;  
+list-style: none;  
+}  
+    #keyboard li {  
+    float: left;  
+    margin: 0 5px 5px 0;  
+    width: 40px;  
+    height: 40px;  
+    line-height: 40px;  
+    text-align: center;  
+    background: #fff;  
+    border: 1px solid #f9f9f9;  
+    border-radius: 5px;
+    }  
+        .capslock, .tab, .left-shift {  
+        clear: left;  
+        }  
+            #keyboard .super, #keyboard .alt {
+            width: 50px;
+            }
+            #keyboard .tab, #keyboard .backspace, #keyboard .left-control, #keyboard .right-control {  
+            width: 70px;  
+            }  
+            #keyboard .capslock {  
+            width: 80px;  
+            }  
+            #keyboard .return {  
+            width: 77px;  
+            }  
+            #keyboard .left-shift {  
+            width: 95px;  
+            }  
+            #keyboard .right-shift {  
+            width: 109px;  
+            }  
+        .lastitem {  
+        margin-right: 0;  
+        }  
+        .uppercase {  
+        text-transform: uppercase;  
+        }  
+        #keyboard .space {  
+        width: 355px;  
+        }  
+        .on {  
+        display: none;  
+        }  
+        #keyboard li:hover {  
+        position: relative;  
+        top: 1px;  
+        left: 1px;  
+        border-color: #e5e5e5;  
+        }  
+
+a {
+    text-decoration: none;
+    color: black;
+}
+#menu {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+}
+#menu ul {
+    width: 260px;
+    margin: auto;
+}
+#menu ul li {
+    list-style: none;
+    margin: 10px 0;
+}
+#menu .button {
+    padding: 8px 0px;
+    display: block;
+    border-radius: 10px;
+    border: 1px solid grey;
+    background-image: -o-linear-gradient(top, rgba(255,255,255, 0.5) 15%, rgba(224,224,224, 0.5) 65%, rgba(201,199,201, 0.5) 92%);
+    background-image: -moz-linear-gradient(top, rgba(255,255,255, 0.5) 15%, rgba(224,224,224, 0.5) 65%, rgba(201,199,201, 0.5) 92%);
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255, 0.5) 15%, rgba(224,224,224, 0.5) 65%, rgba(201,199,201, 0.5) 92%);
+    background-image: linear-gradient(top, rgba(255,255,255, 0.5) 15%, rgba(224,224,224, 0.5) 65%, rgba(201,199,201, 0.5) 92%);
+}
+#menu a {
+    padding: 0;
+    text-shadow: 11px 11px 6px rgba(35, 35, 35, 0.5);
+    font-size: 28px;
+    font-family: 'Nixie One', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+#menu a:hover {
+    opacity: 0.5;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}

@@ -129,12 +129,14 @@ a {
 }
 .hide {
     opacity: 0;
-    -webkit-transition: all 1s ease-in;
-    -moz-transition: all 1s ease-in;
-    -o-transition: all 1s ease-in;
-    transition: all 1s ease-in;
     -webkit-transform: translate(-800px, 0px);
     -moz-transform: translate(-800px, 0px);
     -o-transform: translate(-800px, 0px);
     transform: translate(-800px, 0px);
+}
+.easein {
+    -webkit-transition: all 1s ease-in;
+    -moz-transition: all 1s ease-in;
+    -o-transition: all 1s ease-in;
+    transition: all 1s ease-in;
 }

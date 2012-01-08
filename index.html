@@ -135,7 +135,11 @@
 
             function hide_menu() {
                 var menu = document.getElementById("menu");
-                menu.className = 'hide';
+                menu.className = 'hide easein';
+            }
+            function unhide_menu() {
+                var menu = document.getElementById("menu");
+                menu.className = 'easein';
             }
         </script>
         <script>
@@ -153,7 +157,7 @@
         </script>
     </head>
     <body>
-        <div id="menu">
+        <div id="menu" class="hide easein">
             <ul>
                 <li><a class="button" href="#" onclick="">Tutorial</a></li>
                 <li><a class="button" href="#" onclick="hide_menu(); animate();">Story</a></li>
@@ -224,7 +228,7 @@
         </div>
 		<script>
 		    initialize();
-
+            unhide_menu();
 		</script>
 	</body>
 </html>

@@ -132,6 +132,11 @@
 				composer.render( 0.1 );
 		        //renderer.render(scene, camera);
 		    }
+
+            function hide_menu() {
+                var menu = document.getElementById("menu");
+                menu.className = 'hide';
+            }
         </script>
         <script>
 
@@ -151,7 +156,7 @@
         <div id="menu">
             <ul>
                 <li><a class="button" href="#" onclick="">Tutorial</a></li>
-                <li><a class="button" href="#" onclick="">Story</a></li>
+                <li><a class="button" href="#" onclick="hide_menu(); animate();">Story</a></li>
             </ul>
         </div>
         <div id="container">
@@ -220,7 +225,6 @@
 		<script>
 		    initialize();
 
-		    animate();
 		</script>
 	</body>
 </html>
